@@ -28,4 +28,4 @@ def quarter_of(month):
             if value == month:
                 return key
 
-print(get_quarter(1))
+print(quarter_of(1))

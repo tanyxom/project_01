@@ -33,19 +33,21 @@ while k != 0:
    x = random.choice(my_favorite_songs)
    k -= 1
    y.append(x)
-   print(y)
+   
 
 for i in y:
-    #print ("Значение i:", i, "Значение total ", total)
     total += i[1]
 
-print ("Три песни звучат:", total, "минут")
+print ("Три песни:", y, "звучат", total, "минут")
+
+
 
 # Задача 1.2.
-# Пункт B.
+# Пункт B,C
 
 import random
-import datetime 
+from datetime import timedelta
+import math 
 
 my_favorite_songs_dict = {
     'Waste a Moment': 3.03,
@@ -59,19 +61,16 @@ my_favorite_songs_dict = {
     'In This World': 4.02,
 }
 
-
-#1. три случайные песни
-
 song1 = key1, val1 = random.choice(list(my_favorite_songs_dict.items()))
 song2 = key2, val2 = random.choice(list(my_favorite_songs_dict.items()))
 song3 = key3, val3 = random.choice(list(my_favorite_songs_dict.items()))
 
 songs = song1[0] + ", " + song2[0] + ", " + song3[0]
-#print(songs)
 
-#2. сумма трех песен
-time = song1[1] + song2[1] + song3[1]
-#print(time)
+time1 = math.modf(song1 [1])                                    
+time2 = math.modf(song2 [1])
+time3 = math.modf(song3 [1])
 
+time = timedelta(minutes = time1[1], seconds = time1[0] * 100 ) + timedelta(minutes = time2[1], seconds = time2[0] * 100 ) + timedelta(minutes = time3[1], seconds = time3[0] * 100 )
 
-print("Три песни:", songs, "звучат", time, "минут")
+print("Три песни:", songs, "-", "звучат", time)
